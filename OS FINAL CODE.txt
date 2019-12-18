@@ -1,0 +1,278 @@
+#!/bin/bash
+
+echo "Enter Flag "
+read flag
+
+for (( i =1; i<=flag; i++))
+do
+#su=$su+$i
+if [ $i -le 3 ]
+then
+echo "Continue"
+   continue
+fi
+echo $i
+
+if [ $i -ge 8 ]
+then
+echo "Break"
+break
+fi
+done
+------ -------------
+
+#!/bin/bash
+
+read v1
+read v2
+read v3
+read v4
+#v1=1;
+#v2=2;
+#v3=3;
+#v4=4;
+
+summation()
+{
+echo "first value $v1"
+echo "Second value $v2"
+#echo "third value $v3"
+#echo "Forth value $v4"
+r=$(($1+$2))
+ echo $r
+#r2=$(($1+$2))
+ #echo $r2
+
+}
+
+summation $v1 $v2
+summation $v3 $v4
+
+
+
+-------------------------
+
+#!/bin/bash
+
+read flag;
+read j;
+#read flag
+s=0;
+summation ()
+for ((i=j;i<=flag;i++))
+do
+s=$(($s+$2));
+#j=$j+1;
+echo $s
+done
+
+summation flag j
+
+-----------------------------
+#!bin/bash
+var1=1
+var2=2
+var3=3
+var4=4
+add(){
+echo "the first argument is $1"
+echo "the seocnd argument is $2"
+result=$(($1+$2))
+echo $result
+}
+add $var1 $var2
+add $var3 $var4
+
+
+#!/bin/bash
+
+
+read x
+read y
+read z
+
+if [[( $x > $y && $x > $z )]]
+then
+echo $x"is the greatest number"
+elif [[( $y > $x && $y > $z )]]
+then
+echo $y" is the greatest number"
+else
+echo $z" is the greatest number"
+fi  
+
+#####
+
+
+#!/bin/bash
+
+str1="Welcome"
+str2="Admin"
+
+str1+=$str2
+
+echo $str1
+
+-----------------------
+#!/bin/bash
+
+str1="AIUB"
+str2="aiub"
+if [ $str1 = $str2 ]
+then
+  echo "Both string are same"
+else
+  echo "Not same"
+fi  
+ -----------------------
+#!/bin./bash
+i=1
+sum=0
+
+        while [ $sum -le 5 ]
+        do
+f=$(($sum%2))
+if [ $f == 0 ]
+then
+        echo "Even $sum "
+fi
+        sum=$(( $sum + 1 ))
+
+done
+
+----------------
+#!/bin/bash
+
+str1="AIUB454";
+str2="aiub1223";
+if [ $str1 \< $str2 ]
+then
+  echo "$str1 is not less then $str2"
+else
+  echo "$str1 is  greater then $str2"
+fi  
+ 
+---------------------
+#!/bin/bash
+
+str1="Department of computer science";
+substr=${str1:0:5}
+
+echo $substr
+-----------------------------
+#!/bin/bash
+
+echo "Enter a number"
+read num
+case $num in
+    1)
+       echo "It's one"
+    ;;
+2)
+    echo "its two"
+    ;;
+    9)
+     echo "Its Nine"
+    ;;
+     4)
+     echo "Its four"
+;;
+*)
+echo "not match"
+;;
+esac
+
+--------------------------------
+#!/bin/bash
+
+array=( Rainy days should be spent at home with a cup of tea and a good book )
+
+#print first element
+echo ${array[0]}
+echo ${array:0}
+
+#display all element
+echo ${array[@]}
+echo ${array[@]:0}
+
+#display all element except first one
+echo ${array[@]:1}
+
+#display element in a range
+echo ${array[@]:1:4}
+
+#length of first element
+echo ${#array[0]}
+echo ${#array}
+
+#number of element
+echo ${#array[*]}
+echo ${#array[@]}
+
+#replacing substring
+echo ${array[@]//a/A}
+
+exit 0
+
+
+
+############
+
+
+#!/bin/bash
+
+file='company.txt'
+n=1;
+while read line;
+do
+
+echo "Line no. $n : $line"
+n=$((n+1))
+done <$file
+
+
+
+-----------------------
+
+#!/bin/bash
+
+s1="jhon|jack,jakson;back"
+IFS='|,;'
+#read -r -a: array reads and split the line into an array
+read -ra Names <<< "$s1"  #Convert string to array
+
+#print all names from array
+
+for i in "${Names[@]}";
+do
+  echo $i
+done
+
+ ------------------------
+#!/bin/bash
+
+
+file='popularfruit.txt'
+n=1;
+while read line;
+do
+f=$line;
+#echo "$line"
+n=$((n+1))
+ 
+
+IFS=','
+
+read -ra Names <<< "$f"  
+
+for i in "${Names[@]}";
+do
+  echo $i
+ done
+done <$file
+
+
+
+
+##########
+
